@@ -36,8 +36,24 @@ to solve.
   <img width="90%" src="fraud-checker.png">
 </p>
 
-## How to abstract if it grows
+## What if ...? it grows
 
+If we have the situation that we have to handle to many rules, then, and only then would be time to abstract.
+
+In the current system all the pattern matching for executing the rules is done in [`CheckFraudRule`](/src/main/kotlin/com/fraudchecker/domain/model/service/CheckFraudRule.kt) domain service, and, as you can guess,
+it wouldn't scale so well.
+
+Then, what we can do?
+
+Well, there are several ways to approach this:
+- Create abstractions such as and iterate through them: 
+```kotlin
+interface FraudRuleExecutor {
+    fun <A> appliesTo(fraudRule: FraudRule<A>): Boolean
+    fun <A> execute(fraudRule: FraudRule<A>): List<SuspiciousActivityDetected>
+}
+```
+- You are an engineer right? think about it ;-)
 
 ## To consider if used in production
 
