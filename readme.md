@@ -32,9 +32,16 @@ to solve.
 
 ## Description
 
+Fraud detection systems are usually a mix of rule-based services together with ML services, here we have a really simple
+rule-based one:
+
 <p align="center">
   <img width="90%" src="fraud-checker.png">
 </p>
+
+This system would consume events from user and logins in an event-driven fashion, store them and trigger a process to
+check possible suspicious activity based on the history. If any possible fraud is detected, an event will be raised, 
+allowing other system to act consequently.
 
 ## What if ...? it grows
 
