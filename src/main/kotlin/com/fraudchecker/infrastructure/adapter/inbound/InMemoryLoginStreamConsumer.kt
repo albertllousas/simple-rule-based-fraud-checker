@@ -21,8 +21,8 @@ class InMemoryLoginStreamConsumer(
     fun reactTo(event: LoginEvent) =
         when (event) {
             is LoginSucceeded -> {
-                // this flow could be decoupled publishing an event and react to trigger `checkSuspiciousLoginActivity`
                 loginHistoryRepository.add(event.toDomain())
+                // this flow could be decoupled publishing an event `SuspiciousLoginActivityCheckRequested`, consume it and trigger `checkSuspiciousLoginActivity` in EDA fashion
                 checkSuspiciousLoginActivity(CheckSuspiciousLoginActivityRequest(event.customerId))
             }
             else -> Unit
