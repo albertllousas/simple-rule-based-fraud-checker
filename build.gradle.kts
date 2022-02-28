@@ -2,7 +2,7 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.5.0"
 }
 
-group = "com.alo.teammgmt"
+group = "com.fraudchecker"
 version = "1.0.0"
 
 object Versions {
