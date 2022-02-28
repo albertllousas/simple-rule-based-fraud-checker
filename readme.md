@@ -53,7 +53,7 @@ it wouldn't scale so well.
 Then, what we can do?
 
 Well, there are several ways to approach this:
-- Create abstractions such as and iterate through them: 
+- Create a list of abstractions like the next one and iterate through them: 
 ```kotlin
 interface FraudRuleExecutor {
     fun <A> appliesTo(fraudRule: FraudRule<A>): Boolean
